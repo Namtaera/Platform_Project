@@ -1,0 +1,32 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+  application:
+    name: Platform
+
+  datasource:
+    url: jdbc:mysql://hsb-db.cd8i4uwkcmuo.ap-northeast-2.rds.amazonaws.com:3306/stock_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: adminhsb
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+server:
+  address: 0.0.0.0
+  port: 8080
+  tomcat:
+    threads:
+      max: 200

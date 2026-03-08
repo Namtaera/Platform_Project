@@ -1,4 +1,4 @@
-package com.example.platform_project;
+package jhn.platform_project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
