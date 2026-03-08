@@ -1,10 +1,10 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '4.0.0'
+    id 'org.springframework.boot' version '3.2.1'
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'com.example'
+group = 'jhn'
 version = '0.0.1-SNAPSHOT'
 description = 'Platform_Project'
 
@@ -24,15 +24,43 @@ repositories {
     mavenCentral()
 }
 
+// 빌드시 jar 파일 한개만 생성하기
+jar {
+    enabled = false
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-security-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+    //jsoup 의존성 추가 크롤링
+    implementation 'org.jsoup:jsoup:1.16.1'
+
+    // DB
+    implementation 'org.postgresql:postgresql'
+
+    // sql 쿼리 성능 체크
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
+
+    // 내장 디비
+    implementation 'com.h2database:h2'
+
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+
+
 }
 
 tasks.named('test') {
