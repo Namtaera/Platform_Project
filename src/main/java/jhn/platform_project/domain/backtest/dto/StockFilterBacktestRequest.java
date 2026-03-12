@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,6 +21,9 @@ public class StockFilterBacktestRequest {
 
     @NotNull
     private RebalancingCycle rebalancingCycle;
+
+    // 1~12월 중 제외할 달 목록 (년도 무관)
+    private List<Integer> excludedMonths;
 
     /**
      * 거래대금 순위 조건
