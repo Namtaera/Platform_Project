@@ -6,4 +6,6 @@ import jhn.platform_project.domain.backtest.dto.StockFilterBacktestResponse;
 public interface StockFilterBacktestService {
 
     StockFilterBacktestResponse runBacktest(StockFilterBacktestRequest request);
+
+    StockFilterBacktestResponse runBacktestFirstEntryOnly(StockFilterBacktestRequest request);
 }

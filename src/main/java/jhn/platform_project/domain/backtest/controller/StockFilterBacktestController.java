@@ -21,4 +21,13 @@ public class StockFilterBacktestController {
     ) {
         return ResponseEntity.ok(stockFilterBacktestService.runBacktest(request));
     }
+
+    // ticker 중복되면 제거
+    @PostMapping("/stock-filters/first-entry-only")
+    public ResponseEntity<StockFilterBacktestResponse> runStockFilterBacktestFirstEntryOnly(
+            @Valid @RequestBody StockFilterBacktestRequest request
+    ) {
+        StockFilterBacktestResponse response = stockFilterBacktestService.runBacktestFirstEntryOnly(request);
+        return ResponseEntity.ok(response);
+    }
 }
