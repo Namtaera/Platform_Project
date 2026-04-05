@@ -33,4 +33,18 @@ public class GlobalExceptionHandler {
                         .message(msg)
                         .build());
     }
+
+    @ExceptionHandler(UpperLimitException.class)
+    public ResponseEntity<ErrorResponse> handleUpperLimitException(UpperLimitException e) {
+        UpperLimitErrorCode code = e.getErrorCode();
+        String msg = String.format(code.getMessageTemplate(), e.getArgs());
+
+        log.warn("[{}] {}", code.getCode(), msg);
+
+        return ResponseEntity.status(code.getStatus())
+                .body(ErrorResponse.builder()
+                        .code(code.getCode())
+                        .message(msg)
+                        .build());
+    }
 }

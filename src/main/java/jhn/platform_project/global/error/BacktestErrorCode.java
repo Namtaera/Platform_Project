@@ -31,6 +31,7 @@ public enum BacktestErrorCode {
     NO_AVAILABLE_DATES(HttpStatus.BAD_REQUEST, "BACKTEST_006",
             "선택한 기간/제외월 조건으로 조회 가능한 리밸런싱 데이터가 없습니다.");
 
+
     /** HTTP 상태 코드 */
     private final HttpStatus status;
 
@@ -45,4 +46,6 @@ public enum BacktestErrorCode {
         this.code = code;
         this.messageTemplate = messageTemplate;
     }
+
+
 }
