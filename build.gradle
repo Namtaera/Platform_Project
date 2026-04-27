@@ -48,17 +48,13 @@ dependencies {
     //jsoup 의존성 추가 크롤링
     implementation 'org.jsoup:jsoup:1.16.1'
 
-    // DB
-    implementation 'org.postgresql:postgresql'
-
     // sql 쿼리 성능 체크
     implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
 
-    // 내장 디비
-    implementation 'com.h2database:h2'
+    //디비
+    implementation 'com.mysql:mysql-connector-j'
 
-    runtimeOnly 'com.mysql:mysql-connector-j'
-
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
 
 
 }
